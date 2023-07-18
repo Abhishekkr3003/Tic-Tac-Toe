@@ -46,7 +46,7 @@ public class Board {
     }
 
     boolean isEmpty(int pos) {
-        if (board[pos] != "X" || board[pos] != "O") {
+        if (!(board[pos - 1].equals("X") || board[pos - 1].equals("O"))) {
             return true;
         }
         return false;
@@ -54,10 +54,7 @@ public class Board {
 
 
     void fillGrid(int pos, String value) {
-        if (pos < 0 || pos > 8) {
-            return;
-        }
-        board[pos] = value;
+        board[pos - 1] = value;
     }
 
     String checkBoard(int a) {

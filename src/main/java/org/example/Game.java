@@ -31,8 +31,7 @@ public class Game {
 
                 numInput = Integer.parseInt(inp);
                 if (!(numInput > 0 && numInput <= 9)) {
-                    System.out.println(
-                        "Invalid input; re-enter slot number:");
+                    System.out.println("Invalid input; re-enter slot number:");
                     continue;
                 } else if (!this.board.isEmpty(numInput)) {
                     System.out.println("Position is already filled. Choose another slot : ");
