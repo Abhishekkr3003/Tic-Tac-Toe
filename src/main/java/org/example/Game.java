@@ -13,8 +13,38 @@ public class Game {
         this.p2 = new Player(p2, 'O');
     }
 
-    void makeMove() {
-        // TODO
+    int makeMove(Player p) {
+        
+        System.out.println("Its your turn :" + p.name);
+        Scanner in = new Scanner(System.in);
+
+        int numInput;
+        while(true){
+            try {
+
+                String inp = in.nextLine();
+                if(inp.length() == 1 && inp.charAt(0) == 'q')
+                    return 1;
+
+                numInput = Integer.parseInt(inp);
+                if (!(numInput > 0 && numInput <= 9) ) {
+                    System.out.println(
+                        "Invalid input; re-enter slot number:");
+                    continue;
+                }
+                else if(!this.board.isEmpty(numInput)){
+                    System.out.println("Position is already filled. Choose another slot : ");
+                    continue;
+                }
+            }
+            catch (InputMismatchException e) {
+                System.out.println(
+                    "Invalid input; re-enter slot number:");
+                continue;
+            }
+            this.board.fillGrid(numInput, p.symbol);
+            return 0;
+        }
     }
 
     Boolean checkWinner() {
