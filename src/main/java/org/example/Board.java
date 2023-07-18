@@ -37,5 +37,11 @@ public class Board {
         }
         return isNotFull;
     }
+    static  boolean isEmpty(int pos){
+	if (board[pos] != "X" || board[pos] != "O") {
+	    return true;
+	}
+	return false;
+    }
 
 }
