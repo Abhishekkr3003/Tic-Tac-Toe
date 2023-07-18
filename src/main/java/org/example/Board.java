@@ -39,7 +39,7 @@ public class Board {
         }
     }
     static  boolean isEmpty(int pos){
-	if (board[a] != "X" || board[a] != "O") {
+	if (board[pos] != "X" || board[pos] != "O") {
 	    return true;
 	}
 	return false;
