@@ -38,5 +38,11 @@ public class Board {
             //CALL Game.checkWinner here
         }
     }
+    static  boolean isEmpty(int pos){
+	if (board[a] != "X" || board[a] != "O") {
+	    return true;
+	}
+	return false;
+    }
 
 }
