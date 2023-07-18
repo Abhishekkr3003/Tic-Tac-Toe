@@ -21,6 +21,7 @@ public class Main {
             int input = sc.nextInt();
             if (input == 0) {
                 // new game
+                sc.nextLine();
                 System.out.println("Enter the name of player 1:");
                 String player1 = sc.nextLine();
                 System.out.println("Enter the name of player 2:");
