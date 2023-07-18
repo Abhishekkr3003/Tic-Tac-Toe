@@ -77,7 +77,7 @@ public class Game {
         } else {
             makeMove(p2);
         }
-
+        turn = !turn;
         board.displayBoard();
         return checkWinner();
     }
