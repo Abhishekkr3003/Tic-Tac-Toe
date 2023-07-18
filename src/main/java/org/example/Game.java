@@ -17,30 +17,28 @@ public class Game {
     }
 
     int makeMove(Player p) {
-        
+
         System.out.println("Its your turn :" + p.name);
         Scanner in = new Scanner(System.in);
 
         int numInput;
-        while(true){
+        while (true) {
             try {
 
                 String inp = in.nextLine();
-                if(inp.length() == 1 && inp.charAt(0) == 'q')
+                if (inp.length() == 1 && inp.charAt(0) == 'q')
                     return 1;
 
                 numInput = Integer.parseInt(inp);
-                if (!(numInput > 0 && numInput <= 9) ) {
+                if (!(numInput > 0 && numInput <= 9)) {
                     System.out.println(
                         "Invalid input; re-enter slot number:");
                     continue;
-                }
-                else if(!this.board.isEmpty(numInput)){
+                } else if (!this.board.isEmpty(numInput)) {
                     System.out.println("Position is already filled. Choose another slot : ");
                     continue;
                 }
-            }
-            catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println(
                     "Invalid input; re-enter slot number:");
                 continue;
@@ -51,15 +49,36 @@ public class Game {
     }
 
     Boolean checkWinner() {
-        return true; // TODO
-    }
+        for (int a = 0; a < 8; a++) {
+            String line = board.checkBoard(a);
 
-    Boolean playGame() {
-        makeMove();
-        board.displayBoard();
-        if (checkWinner() || board.isBoardFull()) {
+            //For X winner
+            if (line.equals("XXX")) {
+                System.out.println("Winner is: " + p1.name);
+                return true;
+            }
+
+            // For O winner
+            else if (line.equals("OOO")) {
+                System.out.println("Winner is: " + p2.name);
+                return true;
+            }
+        }
+        if (board.isBoardFull()) {
+            System.out.println("It's a DRAW!");
             return true;
         }
         return false;
+    }
+
+    Boolean playGame() {
+        if (turn) {
+            makeMove(p1);
+        } else {
+            makeMove(p2);
+        }
+
+        board.displayBoard();
+        return checkWinner();
     }
 }
