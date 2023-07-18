@@ -27,7 +27,7 @@ public class Board {
         System.out.println("|---|---|---|");
     }
 
-    Boolean isBoardFull() {
+    boolean isBoardFull() {
         boolean isNotFull = false;
         for (int a = 0; a < 9; a++) {
             if (board[a] != "X" || board[a] != "O") {
@@ -43,6 +43,13 @@ public class Board {
             return true;
         }
         return false;
+    }
+
+    void fillGrid(int pos, String value){
+        if(pos<0 || pos>8){
+            return;
+        }
+        board[pos]=value;
     }
 
 }
