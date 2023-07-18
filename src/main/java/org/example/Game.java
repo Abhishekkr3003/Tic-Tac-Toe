@@ -81,12 +81,11 @@ public class Game {
             } else {
                 val = makeMove(p2);
             }
+            if (val == 1) return false;
             turn = !turn;
             board.displayBoard();
             if (checkWinner()) {
                 return true;
-            } else if (val == 1) {
-                return false;
             }
         }
     }
