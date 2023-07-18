@@ -72,13 +72,21 @@ public class Game {
     }
 
     Boolean playGame() {
-        if (turn) {
-            makeMove(p1);
-        } else {
-            makeMove(p2);
-        }
-        turn = !turn;
         board.displayBoard();
-        return checkWinner();
+        int val = -8;
+        while (true) {
+            if (turn) {
+                val = makeMove(p1);
+            } else {
+                val = makeMove(p2);
+            }
+            turn = !turn;
+            board.displayBoard();
+            if (checkWinner()) {
+                return true;
+            } else if (val == 1) {
+                return false;
+            }
+        }
     }
 }

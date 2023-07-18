@@ -11,6 +11,13 @@ public class Board {
 	| 7 | 8 | 9 |
 	|---|---|---|*/
 
+    Board() {
+        this.board = new String[9];
+        for (Integer i = 1; i < 10; i++) {
+            board[i - 1] = i.toString();
+        }
+    }
+
     void displayBoard() {
         System.out.println("|---|---|---|");
         System.out.println("| " + board[0] + " | "
