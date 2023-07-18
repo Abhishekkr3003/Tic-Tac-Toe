@@ -19,6 +19,7 @@ public class Game {
     int makeMove(Player p) {
 
         System.out.println("Its your turn :" + p.name);
+        System.out.println("Press q to exit");
         Scanner in = new Scanner(System.in);
 
         int numInput;
@@ -26,8 +27,10 @@ public class Game {
             try {
 
                 String inp = in.nextLine();
-                if (inp.length() == 1 && inp.charAt(0) == 'q')
+                if (inp.length() == 1 && inp.charAt(0) == 'q') {
+                    System.out.println("Exiting...");
                     return 1;
+                }
 
                 numInput = Integer.parseInt(inp);
                 if (!(numInput > 0 && numInput <= 9)) {
@@ -38,8 +41,7 @@ public class Game {
                     continue;
                 }
             } catch (InputMismatchException e) {
-                System.out.println(
-                    "Invalid input; re-enter slot number:");
+                System.out.println("Invalid input; re-enter slot number:");
                 continue;
             }
             this.board.fillGrid(numInput, Character.toString(p.symbol));
