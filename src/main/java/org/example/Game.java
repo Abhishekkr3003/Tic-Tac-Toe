@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Game {
     Boolean turn;
     Board board;
@@ -42,7 +45,7 @@ public class Game {
                     "Invalid input; re-enter slot number:");
                 continue;
             }
-            this.board.fillGrid(numInput, p.symbol);
+            this.board.fillGrid(numInput, Character.toString(p.symbol));
             return 0;
         }
     }
