@@ -15,7 +15,7 @@ public class Main {
                 System.out.println("No games currently running. Type 0 to start a new game.");
             else {
                 System.out.println("Currently running games:");
-                System.out.println(games.entrySet().stream().map(Object::toString)
+                System.out.println(games.entrySet().stream().map(e -> e.getKey())
                     .collect(Collectors.joining(" | ")));
                 System.out.println(
                     "Enter game id to choose which game to play, 0 to start new game, -1 to exit.");
