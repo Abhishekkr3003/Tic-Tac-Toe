@@ -1,7 +1,7 @@
 package org.example;
 
 public class Board {
-    static String[] board;
+    String[] board;
     // To print out the board.
 	/* |---|---|---|
 	| 1 | 2 | 3 |
@@ -11,7 +11,7 @@ public class Board {
 	| 7 | 8 | 9 |
 	|---|---|---|*/
 
-    static void displayBoard() {
+    void displayBoard() {
         System.out.println("|---|---|---|");
         System.out.println("| " + board[0] + " | "
             + board[1] + " | " + board[2]
@@ -27,16 +27,15 @@ public class Board {
         System.out.println("|---|---|---|");
     }
 
-    static void isBoardFull() {
+    Boolean isBoardFull() {
         boolean isNotFull = false;
         for (int a = 0; a < 9; a++) {
             if (board[a] != "X" || board[a] != "O") {
                 isNotFull = true;
+                break;
             }
         }
-        if (isNotFull == false) {
-            //CALL Game.checkWinner here
-        }
+        return isNotFull;
     }
 
 }

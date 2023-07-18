@@ -1,14 +1,15 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Game {
     Boolean turn;
-    final Integer gameId;
     Board board;
     Player p1;
     Player p2;
 
-    public Game(Integer gameId, String p1, String p2) {
-        this.gameId = gameId;
+    public Game(String p1, String p2) {
         turn = false;
         board = new Board();
         this.p1 = new Player(p1, 'X');
@@ -16,14 +17,19 @@ public class Game {
     }
 
     void makeMove() {
-
+        // TODO
     }
 
-    void checkWinner() {
-
+    Boolean checkWinner() {
+        return true; // TODO
     }
 
-    void playGame() {
-
+    Boolean playGame() {
+        makeMove();
+        board.displayBoard();
+        if (checkWinner() || board.isBoardFull()) {
+            return true;
+        }
+        return false;
     }
 }
